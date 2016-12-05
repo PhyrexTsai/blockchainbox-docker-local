@@ -12,3 +12,21 @@ Docker images for blockchainbox
     - https://github.com/wurstmeister/kafka-docker
 - Blockchain-server(Java)
     
+## TODO
+
+#### Ethereum
+
+- setup private ethereum blockchain
+
+#### PostgreSQL
+
+- Setup table
+
+#### Kafka 
+
+- Add topic
+
+#### Blockchain-server
+
+- Build with maven and add repository
+
