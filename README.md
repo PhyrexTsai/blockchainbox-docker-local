@@ -14,8 +14,9 @@ docker-compose up
 ## Tech Stack
 
 - Ethereum
+    - https://github.com/Kunstmaan/docker-ethereum/tree/master/geth-testnet
 - PostgreSQL
-    - https://github.com/docker-library/postgres/tree/d2b38544770a63fed430694a7aed33de3ad8b808/9.4/alpine
+    - https://github.com/docker-library/postgres/tree/master/9.4/alpine
 - ZooKeeper
     - https://github.com/wurstmeister/zookeeper-docker
 - Kafka
