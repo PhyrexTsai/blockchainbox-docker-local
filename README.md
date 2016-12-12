@@ -22,22 +22,34 @@ docker-compose up
 - Kafka
     - https://github.com/wurstmeister/kafka-docker
 - Blockchain-server(Java)
+
+- Web3.js
+    - https://github.com/nodejs/docker-node/tree/master/7.2
     
 ## TODO
 
 #### Ethereum
 
-- setup private ethereum blockchain
+- Setup private ethereum blockchain
 
 #### PostgreSQL
 
 - Setup table
+- Design Database schema
 
 #### Kafka 
 
+- Property settings
 - Add topic
 
 #### Blockchain-server
 
+- Tomcat settings
 - Build with maven and add repository
+
+#### Web3.js
+
+- Implement Event listener
+- Smart contract deploy script
+
 

@@ -29,6 +29,7 @@ services:
       - kafka:kafka
       - postgres:postgres
       - ethereum:ethereum
+      - web3js:web3js
     ports:
       - 8080:8080
   ethereum:
@@ -36,3 +37,8 @@ services:
     build: ethereum/   
     ports:
       - 30303:30303
+  web3js:
+    image: blockchainbox/web3js:latest
+    build: web3js/
+    links:
+      - ethereum:ethereum
