@@ -22,9 +22,7 @@ docker-compose up
 - Kafka
     - https://github.com/wurstmeister/kafka-docker
 - Blockchain-server(Java)
-
-- Web3.js
-    - https://github.com/nodejs/docker-node/tree/master/7.2
+    
     
 ## TODO
 
@@ -49,7 +47,7 @@ docker-compose up
 
 #### Web3.js
 
-- Implement Event listener
+- Implement Event listener, Kafka consumer and producer
 - Smart contract deploy script
 
 
