@@ -17,6 +17,11 @@ unlock by address and password
 personal.unlockAccount('7c20badacd20f09f972013008b5e5dae82670c8d', 'OGRiMDdmNmU1YmUwNGUzODA0ODQ4MTc2');
 ```
 
+check account balance "ether"
+```
+web3.fromWei(eth.getBalance(eth.coinbase), "ether")
+```
+
 ### Send transactions
 
 

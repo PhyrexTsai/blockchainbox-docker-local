@@ -1,6 +1,9 @@
 FROM kunstmaan/ethereum-geth
 MAINTAINER Roderik van der Veer
 
+ADD ./accountpassword /root/.accountpassword
+ADD ./primaryaccount /root/.primaryaccount
+
 ADD ./testnet.sh /root/testnet.sh
 RUN chmod +x /root/testnet.sh
 
