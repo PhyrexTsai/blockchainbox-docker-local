@@ -15,6 +15,6 @@ RUN apt-get install -y build-essential checkinstall curl libssl-dev nodejs
 
 RUN apt-get install -y vim npm git
 
-RUN npm install web3
+RUN npm install web3 express
 
 CMD /root/testnet.sh
