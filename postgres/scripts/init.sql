@@ -1,0 +1,3 @@
+CREATE USER root WITH PASSWORD 'root';
+CREATE DATABASE blockchainbox OWNER root ENCODING 'UTF-8';
+GRANT ALL PRIVILEGES ON DATABASE "blockchainbox" to root;
