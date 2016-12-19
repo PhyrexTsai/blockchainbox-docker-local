@@ -21,11 +21,11 @@ CREATE TABLE IF NOT EXISTS TransactionData (
 	dataHash text,
 	status text, -- UNAPPROVED, APPROVING, APPROVED, FAILED
 	network text, -- testnet, public, other network
-	txTimestamp timestamp with timezone,
-	blockTimetamp timestamp with timezone,
+	txTimestamp timestamp with time zone,
+	blockTimetamp timestamp with time zone,
 	fromAddress text,
-	gas long,
-	gasUsed long
+	gas bigint,
+	gasUsed bigint
 );
 
 -- 這邊要記錄使用者查詢 transaction 的資訊
@@ -34,21 +34,20 @@ CREATE TABLE IF NOT EXISTS SearchTransaction (
 	txHash text,
 	status text,
 	network text,
-	createTimestamp timestamp with timezone,
+	createTimestamp timestamp with time zone,
 	fromAddress text,
-	gas long,
-	gasUsed long
+	gas bigint,
+	gasUsed bigint
 );
 
 -- 這邊可以思考一下如果要做類似老師說的 Event 註冊，該怎麼訂
 
--- 這邊要記錄 Event Listener 所收到的所有 Event
-CREATE TABLE IF NOT EXISTS EventData (
+-- 註冊 Contract，目前應該只有會有一個 Proof of transaction 合約
+CREATE TABLE IF NOT EXISTS Contract (
 	id integer primary key,
-	event text,
-	eventData text,
-	eventTimestamp timestamp with timezone,
-	eventType text -- foriegn key of EventType.id
+	name text,
+	bytecode text,
+	createTimestamp timestamp with time zone
 );
 
 -- 定義各種 Event 的 Type
@@ -58,12 +57,13 @@ CREATE TABLE IF NOT EXISTS EventType (
 	contractId integer -- Contract.id
 );
 
--- 註冊 Contract，目前應該只有會有一個 Proof of transaction 合約
-CREATE TABLE IF NOT EXISTS Contract (
+-- 這邊要記錄 Event Listener 所收到的所有 Event
+CREATE TABLE IF NOT EXISTS EventData (
 	id integer primary key,
-	name text,
-	bytecode text,
-	createTimestamp timestamp with timezone
+	event text,
+	eventData text,
+	eventTimestamp timestamp with time zone,
+	eventType text -- foriegn key of EventType.id
 );
 
 -- 過濾 Event 的 Filter for customize
@@ -72,6 +72,6 @@ CREATE TABLE IF NOT EXISTS EventFilter (
 	register text,
 	rule text, -- json 定義 contract & event
 	available boolean,
-	createTimestamp timestamp with timezone
+	createTimestamp timestamp with time zone
 );
 ```
