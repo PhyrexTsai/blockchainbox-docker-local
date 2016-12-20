@@ -22,16 +22,6 @@ services:
     image: wurstmeister/zookeeper
     ports:
       - "2181:2181"  
-  blockchainbox:
-    image: blockchainbox/blockchainbox:latest
-    build: blockchainbox/
-    links:
-      - zookeeper:zookeeper
-      - kafka:kafka
-      - postgres:postgres
-      - ethereum:ethereum
-    ports:
-      - 8080:8080
   ethereum:
     image: blockchainbox/ethereum:latest
     build: ethereum/   

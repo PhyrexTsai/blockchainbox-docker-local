@@ -13,7 +13,7 @@ docker-compose up
 
 ## Tech Stack
 
-- Ethereum
+- Ethereum & Web3.js
     - https://github.com/Kunstmaan/docker-ethereum/tree/master/geth-testnet
 - PostgreSQL
     - https://github.com/docker-library/postgres/tree/master/9.4/alpine
@@ -21,14 +21,8 @@ docker-compose up
     - https://github.com/wurstmeister/zookeeper-docker
 - Kafka
     - https://github.com/wurstmeister/kafka-docker
-- Blockchain-server(Java)
-    
     
 ## TODO
-
-#### Ethereum
-
-- Setup private ethereum blockchain
 
 #### PostgreSQL
 
@@ -40,14 +34,18 @@ docker-compose up
 - Property settings
 - Add topic
 
-#### Blockchain-server
-
-- Tomcat settings
-- Build with maven and add repository
-
-#### Web3.js
+#### Ethereum & Web3.js
 
 - Implement Event listener, Kafka consumer and producer
 - Smart contract deploy script
+- Setup private ethereum blockchain
 
+## Memo
 
+Modify `Dockerfile` to build a new image
+```
+-- rebuild docker image
+docker build - < Dockerfile
+
+-- start docker 
+docker run {hash}
