@@ -26,6 +26,4 @@ services:
     image: blockchainbox/ethereum:latest
     build: ethereum/   
     ports:
-      - 30303:30303
-      - 8545:8545
       - 3000:3000
