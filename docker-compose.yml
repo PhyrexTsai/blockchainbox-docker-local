@@ -11,6 +11,7 @@ services:
     environment:
       KAFKA_ADVERTISED_HOST_NAME: 127.0.0.1
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_CREATE_TOPICS: "InsertQueue:1:3,ReadQueue:1:3"
     links:
       - zookeeper:zookeeper
     ports:
@@ -21,24 +22,10 @@ services:
     image: wurstmeister/zookeeper
     ports:
       - "2181:2181"  
-  blockchainbox:
-    image: blockchainbox/blockchainbox:latest
-    build: blockchainbox/
-    links:
-      - zookeeper:zookeeper
-      - kafka:kafka
-      - postgres:postgres
-      - ethereum:ethereum
-      - web3js:web3js
-    ports:
-      - 8080:8080
   ethereum:
     image: blockchainbox/ethereum:latest
     build: ethereum/   
     ports:
+      - 3000:3000
+      - 8545:8545
       - 30303:30303
-  web3js:
-    image: blockchainbox/web3js:latest
-    build: web3js/
-    links:
-      - ethereum:ethereum
