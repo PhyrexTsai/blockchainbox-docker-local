@@ -38,6 +38,10 @@ docker-compose up
 Add new two topics KAFKA_CREATE_TOPICS: "InsertQueue:1:3,ReadQueue:1:3" in docker-compose.yml
 each 1 master and 3 replicas
 
+#####finished:
+- Add topic(V) 
+Add new two topics KAFKA_CREATE_TOPICS: "InsertQueue:1:3,ReadQueue:1:3" in docker-compose.yml each 1 master and 3 replicas
+
 #### Ethereum & Web3.js
 
 - Implement Event listener, Kafka consumer and producer
