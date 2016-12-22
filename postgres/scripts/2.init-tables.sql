@@ -11,6 +11,9 @@ CREATE TABLE IF NOT EXISTS TransactionData (
 	gasUsed bigint
 );
 
+ALTER TABLE TransactionData
+  OWNER TO root;
+
 CREATE TABLE IF NOT EXISTS SearchTransaction (
 	id integer primary key,
 	txHash text,
@@ -22,6 +25,9 @@ CREATE TABLE IF NOT EXISTS SearchTransaction (
 	gasUsed bigint
 );
 
+ALTER TABLE SearchTransaction
+  OWNER TO root;
+
 CREATE TABLE IF NOT EXISTS Contract (
 	id integer primary key,
 	name text,
@@ -29,11 +35,17 @@ CREATE TABLE IF NOT EXISTS Contract (
 	createTimestamp timestamp with time zone
 );
 
+ALTER TABLE Contract
+  OWNER TO root;
+
 CREATE TABLE IF NOT EXISTS EventType (
 	id integer primary key,
 	name text,
 	contractId integer -- Contract.id
 );
+
+ALTER TABLE EventType
+  OWNER TO root;
 
 CREATE TABLE IF NOT EXISTS EventData (
 	id integer primary key,
@@ -43,6 +55,9 @@ CREATE TABLE IF NOT EXISTS EventData (
 	eventType text -- foriegn key of EventType.id
 );
 
+ALTER TABLE EventData
+  OWNER TO root;
+
 CREATE TABLE IF NOT EXISTS EventFilter (
 	id integer primary key,
 	register text,
@@ -50,3 +65,6 @@ CREATE TABLE IF NOT EXISTS EventFilter (
 	available boolean,
 	createTimestamp timestamp with time zone
 );
+
+ALTER TABLE EventFilter
+  OWNER TO root;

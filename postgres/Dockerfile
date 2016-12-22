@@ -119,8 +119,8 @@ VOLUME /var/lib/postgresql/data
 
 COPY docker-entrypoint.sh /
 
-COPY scripts/init.sql /docker-entrypoint-initdb.d
-COPY scripts/tables.sql /docker-entrypoint-initdb.d
+COPY scripts/1.init-user.sql /docker-entrypoint-initdb.d
+COPY scripts/2.init-tables.sql /docker-entrypoint-initdb.d
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
 
