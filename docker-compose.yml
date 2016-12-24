@@ -28,7 +28,6 @@ services:
     ports:
       - 3000:3000
       - 8545:8545
-      - 30303:30303
     links:
       - zookeeper:zookeeper
       - kafka:kafka
