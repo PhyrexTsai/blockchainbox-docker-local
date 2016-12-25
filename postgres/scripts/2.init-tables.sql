@@ -1,5 +1,6 @@
 CREATE TABLE IF NOT EXISTS TransactionData (
-	txHash text primary key,
+	txId serial primary key,
+	txHash text,
 	data text, -- json format
 	dataHash text,
 	status text, -- UNAPPROVED, APPROVING, APPROVED, FAILED
@@ -15,7 +16,7 @@ ALTER TABLE TransactionData
   OWNER TO root;
 
 CREATE TABLE IF NOT EXISTS SearchTransaction (
-	id integer primary key,
+	id serial primary key,
 	txHash text,
 	status text,
 	network text,
@@ -29,7 +30,7 @@ ALTER TABLE SearchTransaction
   OWNER TO root;
 
 CREATE TABLE IF NOT EXISTS Contract (
-	id integer primary key,
+	id serial primary key,
 	name text,
 	bytecode text,
 	createTimestamp timestamp with time zone
@@ -39,7 +40,7 @@ ALTER TABLE Contract
   OWNER TO root;
 
 CREATE TABLE IF NOT EXISTS EventType (
-	id integer primary key,
+	id serial primary key,
 	name text,
 	contractId integer -- Contract.id
 );
@@ -48,7 +49,7 @@ ALTER TABLE EventType
   OWNER TO root;
 
 CREATE TABLE IF NOT EXISTS EventData (
-	id integer primary key,
+	id serial primary key,
 	event text,
 	eventData text,
 	eventTimestamp timestamp with time zone,
@@ -59,7 +60,7 @@ ALTER TABLE EventData
   OWNER TO root;
 
 CREATE TABLE IF NOT EXISTS EventFilter (
-	id integer primary key,
+	id serial primary key,
 	register text,
 	rule text, -- json 定義 contract & event
 	available boolean,
