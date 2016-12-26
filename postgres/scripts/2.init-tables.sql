@@ -1,15 +1,16 @@
 CREATE TABLE IF NOT EXISTS TransactionData (
 	txId serial primary key,
 	txHash text,
+	transactionHash text,
 	data text, -- json format
 	dataHash text,
 	status text, -- UNAPPROVED, APPROVING, APPROVED, FAILED
 	network text, -- testnet, public, other network
 	txTimestamp timestamp with time zone,
-	blockTimetamp timestamp with time zone,
-	fromAddress text,
-	gas bigint,
-	gasUsed bigint
+	updateTimestamp timestamp with time zone,
+	blockNumber bigint,
+	blockHash text,
+	fromAddress text
 );
 
 ALTER TABLE TransactionData
