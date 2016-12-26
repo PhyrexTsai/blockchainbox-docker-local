@@ -7,10 +7,10 @@ CREATE TABLE IF NOT EXISTS TransactionData (
 	status text, -- UNAPPROVED, APPROVING, APPROVED, FAILED
 	network text, -- testnet, public, other network
 	txTimestamp timestamp with time zone,
-	blockTimetamp timestamp with time zone,
-	fromAddress text,
-	gas bigint,
-	gasUsed bigint
+	updateTimestamp timestamp with time zone,
+	blockNumber bigint,
+	blockHash text,
+	fromAddress text
 );
 
 ALTER TABLE TransactionData
