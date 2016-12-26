@@ -1,6 +1,7 @@
 CREATE TABLE IF NOT EXISTS TransactionData (
 	txId serial primary key,
 	txHash text,
+	transactionHash text,
 	data text, -- json format
 	dataHash text,
 	status text, -- UNAPPROVED, APPROVING, APPROVED, FAILED
