@@ -32,6 +32,7 @@ docker-compose up
 #### Kafka 
 
 - Property settings
+- Make topic configurable
 
 #####finished:
 - Add topic(V)
