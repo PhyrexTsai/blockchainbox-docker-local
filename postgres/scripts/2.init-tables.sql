@@ -10,7 +10,8 @@ CREATE TABLE IF NOT EXISTS TransactionData (
 	updateTimestamp timestamp with time zone,
 	blockNumber bigint,
 	blockHash text,
-	fromAddress text
+	fromAddress text,
+	gas integer
 );
 
 ALTER TABLE TransactionData

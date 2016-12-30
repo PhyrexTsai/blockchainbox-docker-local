@@ -27,3 +27,5 @@ web3.fromWei(eth.getBalance(eth.coinbase), "ether")
 
 ### Smart contract
 
+### Node install
+Reference: http://yoember.com/nodejs/the-best-way-to-install-node-js/
