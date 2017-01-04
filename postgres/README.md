@@ -6,7 +6,10 @@
 -- access by default
 psql -U postgres
 
--- create database and create user then grant all privileges
+-- create database and create user then grant all privileges, use command
+psql -c "CREATE USER root WITH PASSWORD 'root';"
+
+-- 
 CREATE USER root WITH PASSWORD 'root';
 CREATE DATABASE blockchainbox OWNER root ENCODING 'UTF-8';
 GRANT ALL PRIVILEGES ON DATABASE "blockchainbox" to root;
@@ -16,7 +19,8 @@ psql -U root -W -d blockchainbox
 
 -- create table TransactionData
 CREATE TABLE IF NOT EXISTS TransactionData (
-	txHash text primary key,
+	txId serial primary key,
+	txHash text,
 	data text, -- json format
 	dataHash text,
 	status text, -- UNAPPROVED, APPROVING, APPROVED, FAILED
@@ -35,9 +39,7 @@ CREATE TABLE IF NOT EXISTS SearchTransaction (
 	status text,
 	network text,
 	createTimestamp timestamp with time zone,
-	fromAddress text,
-	gas bigint,
-	gasUsed bigint
+	fromAddress text
 );
 
 -- 這邊可以思考一下如果要做類似老師說的 Event 註冊，該怎麼訂

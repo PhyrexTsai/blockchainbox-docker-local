@@ -8,6 +8,7 @@ Run commands below
 ```
 git clone https://github.com/PhyrexTsai/blockchainbox-docker
 cd blockchainbox-docker
+docker-compose build
 docker-compose up
 ```
 
