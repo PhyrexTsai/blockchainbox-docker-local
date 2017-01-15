@@ -1,17 +1,52 @@
+CREATE TABLE IF NOT EXISTS Contract (
+	id serial primary key,
+	name text,
+	sourceCode text,
+	byteCode text,
+	abi text,
+	address text,
+	createTimestamp timestamp with time zone
+);
+
+ALTER TABLE Contract
+	OWNER TO root;
+
+CREATE TABLE IF NOT EXISTS ContractEvent (
+	id serial primary key,
+	contractId integer, -- FK: Contract.id
+	eventName text,
+	eventParameters text,
+	createTimestamp timestamp with time zone
+);
+
+ALTER TABLE ContractEvent
+	OWNER TO root;
+
+CREATE TABLE IF NOT EXISTS ContractFunction (
+	id serial primary key,
+	contractId integer, -- FK: Contract.id
+	functionName text,
+	functionParameters text,
+	createTimestamp timestamp with time zone
+);
+
+ALTER TABLE ContractFunction
+	OWNER TO root;
+
 CREATE TABLE IF NOT EXISTS TransactionData (
 	txId serial primary key,
 	txHash text,
-	transactionHash text,
+	transactionHash text,	-- which transactionHash
 	data text, -- json format
-	dataHash text,
-	status text, -- UNAPPROVED, APPROVING, APPROVED, FAILED
+	dataHash text,	-- will remove after refactor
+	status text, -- UNCONFIRM, PENDING, CONFIRMED, FAILED
 	network text, -- testnet, public, other network
 	txTimestamp timestamp with time zone,
 	updateTimestamp timestamp with time zone,
 	blockNumber bigint,
 	blockHash text,
 	fromAddress text,
-	gas integer
+	gasUsed integer
 );
 
 ALTER TABLE TransactionData
@@ -31,31 +66,13 @@ CREATE TABLE IF NOT EXISTS SearchTransaction (
 ALTER TABLE SearchTransaction
   OWNER TO root;
 
-CREATE TABLE IF NOT EXISTS Contract (
-	id serial primary key,
-	name text,
-	bytecode text,
-	createTimestamp timestamp with time zone
-);
-
-ALTER TABLE Contract
-  OWNER TO root;
-
-CREATE TABLE IF NOT EXISTS EventType (
-	id serial primary key,
-	name text,
-	contractId integer -- Contract.id
-);
-
-ALTER TABLE EventType
-  OWNER TO root;
-
 CREATE TABLE IF NOT EXISTS EventData (
 	id serial primary key,
-	event text,
-	eventData text,
-	eventTimestamp timestamp with time zone,
-	eventType text -- foriegn key of EventType.id
+	contractEventId integer,
+	transactionHash text,	-- reference to transactionHash
+	name text,	-- event name
+	data text,	-- event data, transactionData.dataHash will belong here
+	createTimestamp timestamp with time zone
 );
 
 ALTER TABLE EventData
