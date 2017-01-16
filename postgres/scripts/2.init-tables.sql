@@ -9,7 +9,8 @@ CREATE TABLE IF NOT EXISTS Contract (
 	address text,
 	createTimestamp timestamp with time zone,
 	gasEstimates integer,
-	gasUsed integer
+	gasUsed integer,
+	status text
 );
 
 ALTER TABLE Contract
