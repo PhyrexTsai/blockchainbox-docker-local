@@ -3,9 +3,13 @@ CREATE TABLE IF NOT EXISTS Contract (
 	name text,
 	sourceCode text,
 	byteCode text,
+	language text,
+	compilerVersion text,
 	abi text,
 	address text,
-	createTimestamp timestamp with time zone
+	createTimestamp timestamp with time zone,
+	gasEstimates integer,
+	gasUsed integer
 );
 
 ALTER TABLE Contract
@@ -80,7 +84,7 @@ ALTER TABLE EventData
 
 CREATE TABLE IF NOT EXISTS EventFilter (
 	id serial primary key,
-	register text,
+	register text,a
 	rule text, -- json 定義 contract & event
 	available boolean,
 	createTimestamp timestamp with time zone
