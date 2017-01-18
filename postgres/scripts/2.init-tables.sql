@@ -7,6 +7,7 @@ CREATE TABLE IF NOT EXISTS Contract (
 	compilerVersion text,
 	abi text,
 	address text,
+	transactionHash text,c
 	createTimestamp timestamp with time zone,
 	gasEstimates integer,
 	gasUsed integer,
@@ -85,7 +86,7 @@ ALTER TABLE EventData
 
 CREATE TABLE IF NOT EXISTS EventFilter (
 	id serial primary key,
-	register text,a
+	register text,
 	rule text, -- json 定義 contract & event
 	available boolean,
 	createTimestamp timestamp with time zone
