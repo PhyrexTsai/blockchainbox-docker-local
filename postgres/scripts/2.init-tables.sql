@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS Contract (
 	compilerVersion text,
 	abi text,
 	address text,
-	transactionHash text,c
+	transactionHash text,
 	createTimestamp timestamp with time zone,
 	gasEstimates integer,
 	gasUsed integer,
